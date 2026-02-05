@@ -1,0 +1,21 @@
+version: v2
+
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: gofronet-foundation/gofro-node/gen/go
+
+inputs:
+  - git_repo: ssh://git@gitlab.com/gofronet/specs/node-proto.git
+    branch: main
+
+plugins:
+  - local: protoc-gen-go
+    out: gen
+    opt:
+      - paths=source_relative
+  - local: protoc-gen-go-grpc
+    out: gen
+    opt:
+      - paths=source_relative
