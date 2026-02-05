@@ -7,7 +7,7 @@ import (
 
 type Config struct {
 	XrayConfigFile string `env:"XRAY_DEFAULT_CONFIG" envDefault:"xconf/config.json"`
-	NodeName       string `env:"NODE_NAME"`
+	NodeName       string `env:"NODE_NAME,required"`
 	XrayCorePath   string `env:"XRAY_CORE_PATH" envDefault:"xray/xray"`
 	IsDevMode      bool   `env:"DEV_MODE" envDefault:"false"`
 }

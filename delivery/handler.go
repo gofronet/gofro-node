@@ -60,8 +60,15 @@ func (h *Handler) StopXray(ctx context.Context, req *apiv1.StopXrayRequest) (*ap
 	return &apiv1.StopXrayResponse{}, nil
 }
 
-func (h *Handler) GetXrayStatus(context.Context, *apiv1.GetXrayStatusRequest) (*apiv1.GetXrayStatusResponse, error) {
-	return &apiv1.GetXrayStatusResponse{
-		IsRunning: h.xrayManager.IsRunning(),
+func (h *Handler) GetNodeInfo(context.Context, *apiv1.GetNodeInfoRequest) (*apiv1.GetNodeInfoResponse, error) {
+	return &apiv1.GetNodeInfoResponse{
+		XrayRunning: h.xrayManager.IsRunning(),
+		NodeName:    h.config.NodeName,
+	}, nil
+}
+
+func (h *Handler) GetCurrentConfig(context.Context, *apiv1.GetCurrentConfigRequest) (*apiv1.GetCurrentConfigResponse, error) {
+	return &apiv1.GetCurrentConfigResponse{
+		CurrentConfig: h.xrayManager.GetCurrentConfig(),
 	}, nil
 }

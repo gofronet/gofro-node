@@ -23,7 +23,8 @@ const (
 	XrayService_UpdateXrayConfig_FullMethodName = "/api.v1.XrayService/UpdateXrayConfig"
 	XrayService_RestartXray_FullMethodName      = "/api.v1.XrayService/RestartXray"
 	XrayService_StopXray_FullMethodName         = "/api.v1.XrayService/StopXray"
-	XrayService_GetXrayStatus_FullMethodName    = "/api.v1.XrayService/GetXrayStatus"
+	XrayService_GetNodeInfo_FullMethodName      = "/api.v1.XrayService/GetNodeInfo"
+	XrayService_GetCurrentConfig_FullMethodName = "/api.v1.XrayService/GetCurrentConfig"
 )
 
 // XrayServiceClient is the client API for XrayService service.
@@ -34,7 +35,8 @@ type XrayServiceClient interface {
 	UpdateXrayConfig(ctx context.Context, in *UpdateXrayConfigRequest, opts ...grpc.CallOption) (*UpdateXrayConfigResponse, error)
 	RestartXray(ctx context.Context, in *RestartXrayRequest, opts ...grpc.CallOption) (*RestartXrayResponse, error)
 	StopXray(ctx context.Context, in *StopXrayRequest, opts ...grpc.CallOption) (*StopXrayResponse, error)
-	GetXrayStatus(ctx context.Context, in *GetXrayStatusRequest, opts ...grpc.CallOption) (*GetXrayStatusResponse, error)
+	GetNodeInfo(ctx context.Context, in *GetNodeInfoRequest, opts ...grpc.CallOption) (*GetNodeInfoResponse, error)
+	GetCurrentConfig(ctx context.Context, in *GetCurrentConfigRequest, opts ...grpc.CallOption) (*GetCurrentConfigResponse, error)
 }
 
 type xrayServiceClient struct {
@@ -85,10 +87,20 @@ func (c *xrayServiceClient) StopXray(ctx context.Context, in *StopXrayRequest, o
 	return out, nil
 }
 
-func (c *xrayServiceClient) GetXrayStatus(ctx context.Context, in *GetXrayStatusRequest, opts ...grpc.CallOption) (*GetXrayStatusResponse, error) {
+func (c *xrayServiceClient) GetNodeInfo(ctx context.Context, in *GetNodeInfoRequest, opts ...grpc.CallOption) (*GetNodeInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetXrayStatusResponse)
-	err := c.cc.Invoke(ctx, XrayService_GetXrayStatus_FullMethodName, in, out, cOpts...)
+	out := new(GetNodeInfoResponse)
+	err := c.cc.Invoke(ctx, XrayService_GetNodeInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *xrayServiceClient) GetCurrentConfig(ctx context.Context, in *GetCurrentConfigRequest, opts ...grpc.CallOption) (*GetCurrentConfigResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetCurrentConfigResponse)
+	err := c.cc.Invoke(ctx, XrayService_GetCurrentConfig_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -103,7 +115,8 @@ type XrayServiceServer interface {
 	UpdateXrayConfig(context.Context, *UpdateXrayConfigRequest) (*UpdateXrayConfigResponse, error)
 	RestartXray(context.Context, *RestartXrayRequest) (*RestartXrayResponse, error)
 	StopXray(context.Context, *StopXrayRequest) (*StopXrayResponse, error)
-	GetXrayStatus(context.Context, *GetXrayStatusRequest) (*GetXrayStatusResponse, error)
+	GetNodeInfo(context.Context, *GetNodeInfoRequest) (*GetNodeInfoResponse, error)
+	GetCurrentConfig(context.Context, *GetCurrentConfigRequest) (*GetCurrentConfigResponse, error)
 	mustEmbedUnimplementedXrayServiceServer()
 }
 
@@ -126,8 +139,11 @@ func (UnimplementedXrayServiceServer) RestartXray(context.Context, *RestartXrayR
 func (UnimplementedXrayServiceServer) StopXray(context.Context, *StopXrayRequest) (*StopXrayResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method StopXray not implemented")
 }
-func (UnimplementedXrayServiceServer) GetXrayStatus(context.Context, *GetXrayStatusRequest) (*GetXrayStatusResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method GetXrayStatus not implemented")
+func (UnimplementedXrayServiceServer) GetNodeInfo(context.Context, *GetNodeInfoRequest) (*GetNodeInfoResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetNodeInfo not implemented")
+}
+func (UnimplementedXrayServiceServer) GetCurrentConfig(context.Context, *GetCurrentConfigRequest) (*GetCurrentConfigResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetCurrentConfig not implemented")
 }
 func (UnimplementedXrayServiceServer) mustEmbedUnimplementedXrayServiceServer() {}
 func (UnimplementedXrayServiceServer) testEmbeddedByValue()                     {}
@@ -222,20 +238,38 @@ func _XrayService_StopXray_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
-func _XrayService_GetXrayStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetXrayStatusRequest)
+func _XrayService_GetNodeInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNodeInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(XrayServiceServer).GetXrayStatus(ctx, in)
+		return srv.(XrayServiceServer).GetNodeInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: XrayService_GetXrayStatus_FullMethodName,
+		FullMethod: XrayService_GetNodeInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(XrayServiceServer).GetXrayStatus(ctx, req.(*GetXrayStatusRequest))
+		return srv.(XrayServiceServer).GetNodeInfo(ctx, req.(*GetNodeInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _XrayService_GetCurrentConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCurrentConfigRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(XrayServiceServer).GetCurrentConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: XrayService_GetCurrentConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(XrayServiceServer).GetCurrentConfig(ctx, req.(*GetCurrentConfigRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -264,8 +298,12 @@ var XrayService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _XrayService_StopXray_Handler,
 		},
 		{
-			MethodName: "GetXrayStatus",
-			Handler:    _XrayService_GetXrayStatus_Handler,
+			MethodName: "GetNodeInfo",
+			Handler:    _XrayService_GetNodeInfo_Handler,
+		},
+		{
+			MethodName: "GetCurrentConfig",
+			Handler:    _XrayService_GetCurrentConfig_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
