@@ -30,7 +30,9 @@ func main() {
 	}
 
 	manager := xraymanager.NewXrayManager(xrayConfig, cfg.XrayCorePath)
-	manager.Start()
+	if err := manager.Start(); err != nil {
+		log.Fatalln(err)
+	}
 
 	handler := delivery.NewHandler(cfg, manager)
 
