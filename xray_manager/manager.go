@@ -33,6 +33,7 @@ func NewXrayManager(config string, xrayPath string) *XrayManager {
 var ErrAlreadyRunning = errors.New("xray already running")
 
 func (m *XrayManager) Start() error {
+	log.Println("starting xray core")
 	m.mu.Lock()
 	defer m.mu.Unlock()
 
@@ -71,6 +72,7 @@ func (m *XrayManager) watch(cmd *exec.Cmd) {
 }
 
 func (m *XrayManager) Stop(ctx context.Context) error {
+	log.Println("stopping xray core")
 	m.mu.Lock()
 	if !m.running || m.cmd == nil {
 		m.mu.Unlock()
@@ -103,6 +105,7 @@ func (m *XrayManager) Stop(ctx context.Context) error {
 }
 
 func (m *XrayManager) UpdateConfig(newConfig string) error {
+	log.Println("updating config xray core")
 	m.mu.Lock()
 	defer m.mu.Unlock()
 
@@ -113,6 +116,7 @@ func (m *XrayManager) UpdateConfig(newConfig string) error {
 var XrayNotRunning = errors.New("xray not running")
 
 func (m *XrayManager) Restart(ctx context.Context) error {
+	log.Println("restarting xray core")
 	if !m.running {
 		return XrayNotRunning
 	}
@@ -123,6 +127,13 @@ func (m *XrayManager) Restart(ctx context.Context) error {
 	}
 
 	return m.Start()
+}
+
+func (m *XrayManager) GetCurrentConfig() string {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+
+	return m.config
 }
 
 func terminatedBySIGTERM(err error) bool {
@@ -138,6 +149,7 @@ func terminatedBySIGTERM(err error) bool {
 }
 
 func (m *XrayManager) IsRunning() bool {
+	log.Println("checking IsRunning xray core")
 	m.mu.Lock()
 	defer m.mu.Unlock()
 	return m.running
