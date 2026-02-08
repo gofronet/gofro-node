@@ -24,7 +24,7 @@ require_root() {
 
 detect_pkg_manager() {
   if command -v apt-get >/dev/null 2>&1; then
-    PKG_INSTALL="apt-get update && apt-get install -y"
+    PKG_INSTALL="apt-get"
   elif command -v dnf >/dev/null 2>&1; then
     PKG_INSTALL="dnf install -y"
   elif command -v yum >/dev/null 2>&1; then
@@ -42,6 +42,11 @@ install_packages() {
   local packages=("$@")
   if [[ -z "${PKG_INSTALL}" ]]; then
     echo "warning: no supported package manager found; install dependencies manually: ${packages[*]}"
+    return 0
+  fi
+  if [[ "${PKG_INSTALL}" == "apt-get" ]]; then
+    apt-get update
+    apt-get install -y "${packages[@]}"
     return 0
   fi
   # shellcheck disable=SC2086
