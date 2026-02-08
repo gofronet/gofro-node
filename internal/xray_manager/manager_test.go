@@ -2,7 +2,7 @@ package xraymanager_test
 
 import (
 	"context"
-	xraymanager "gofronet-foundation/gofro-node/xray_manager"
+	xraymanager "gofronet-foundation/gofro-node/internal/xray_manager"
 	"testing"
 	"time"
 
@@ -11,7 +11,7 @@ import (
 
 const (
 	config = "{\"log\": {\"logLevel\": \"debug\"}}"
-	path   = "../xray/xray"
+	path   = "../../xray/xray"
 )
 
 func TestManager(t *testing.T) {

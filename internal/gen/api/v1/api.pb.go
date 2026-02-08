@@ -513,9 +513,9 @@ const file_api_v1_api_proto_rawDesc = "" +
 	"\vRestartXray\x12\x1a.api.v1.RestartXrayRequest\x1a\x1b.api.v1.RestartXrayResponse\x12=\n" +
 	"\bStopXray\x12\x17.api.v1.StopXrayRequest\x1a\x18.api.v1.StopXrayResponse\x12F\n" +
 	"\vGetNodeInfo\x12\x1a.api.v1.GetNodeInfoRequest\x1a\x1b.api.v1.GetNodeInfoResponse\x12U\n" +
-	"\x10GetCurrentConfig\x12\x1f.api.v1.GetCurrentConfigRequest\x1a .api.v1.GetCurrentConfigResponseB\x83\x01\n" +
+	"\x10GetCurrentConfig\x12\x1f.api.v1.GetCurrentConfigRequest\x1a .api.v1.GetCurrentConfigResponseB\x8c\x01\n" +
 	"\n" +
-	"com.api.v1B\bApiProtoP\x01Z2gofronet-foundation/gofro-node/gen/go/api/v1;apiv1\xa2\x02\x03AXX\xaa\x02\x06Api.V1\xca\x02\x06Api\\V1\xe2\x02\x12Api\\V1\\GPBMetadata\xea\x02\aApi::V1b\x06proto3"
+	"com.api.v1B\bApiProtoP\x01Z;gofronet-foundation/gofro-node/internal/gen/go/api/v1;apiv1\xa2\x02\x03AXX\xaa\x02\x06Api.V1\xca\x02\x06Api\\V1\xe2\x02\x12Api\\V1\\GPBMetadata\xea\x02\aApi::V1b\x06proto3"
 
 var (
 	file_api_v1_api_proto_rawDescOnce sync.Once

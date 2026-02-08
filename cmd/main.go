@@ -2,11 +2,11 @@ package main
 
 import (
 	"context"
-	"gofronet-foundation/gofro-node/config"
-	"gofronet-foundation/gofro-node/delivery"
-	"gofronet-foundation/gofro-node/delivery/interceptors"
-	apiv1 "gofronet-foundation/gofro-node/gen/api/v1"
-	xraymanager "gofronet-foundation/gofro-node/xray_manager"
+	"gofronet-foundation/gofro-node/internal/config"
+	"gofronet-foundation/gofro-node/internal/delivery"
+	"gofronet-foundation/gofro-node/internal/delivery/interceptors"
+	apiv1 "gofronet-foundation/gofro-node/internal/gen/api/v1"
+	xraymanager "gofronet-foundation/gofro-node/internal/xray_manager"
 	"log"
 	"net"
 	"os"
@@ -34,7 +34,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	handler := delivery.NewHandler(cfg, manager)
+	handler := delivery.NewXrayManagmentService(cfg, manager)
 
 	grpcServer := grpc.NewServer(grpc.UnaryInterceptor(interceptors.UnaryLogging()))
 	apiv1.RegisterXrayServiceServer(grpcServer, handler)
