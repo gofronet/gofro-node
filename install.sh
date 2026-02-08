@@ -22,6 +22,13 @@ require_root() {
   fi
 }
 
+require_linux() {
+  if [[ "$(uname -s)" != "Linux" ]]; then
+    echo "error: this installer supports Linux only."
+    exit 1
+  fi
+}
+
 detect_pkg_manager() {
   if command -v apt-get >/dev/null 2>&1; then
     PKG_INSTALL="apt-get"
@@ -89,13 +96,8 @@ map_xray_arch() {
   esac
 }
 
-latest_xray_tag() {
-  curl -fsSL "https://api.github.com/repos/XTLS/Xray-core/releases/latest" \
-    | sed -n 's/.*"tag_name":"\\([^"]*\\)".*/\\1/p' | head -n 1
-}
-
 install_xray() {
-  local arch tag url tmp
+  local arch tag url tmp file_info
   arch="$(map_xray_arch)"
   if [[ -z "${arch}" ]]; then
     echo "error: unsupported architecture: $(uname -m)"
@@ -104,19 +106,38 @@ install_xray() {
 
   install_packages curl unzip
 
-  tag="$(latest_xray_tag)"
-  if [[ -z "${tag}" ]]; then
-    echo "error: failed to determine latest Xray version."
-    exit 1
+  if [[ -n "${XRAY_VERSION:-}" ]]; then
+    url="https://github.com/XTLS/Xray-core/releases/download/${XRAY_VERSION}/Xray-linux-${arch}.zip"
+  else
+    url="https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-${arch}.zip"
   fi
 
-  url="https://github.com/XTLS/Xray-core/releases/download/${tag}/Xray-linux-${arch}.zip"
   tmp="$(mktemp -d)"
-  curl -fsSL -o "${tmp}/xray.zip" "${url}"
+  if ! curl -fsSL -o "${tmp}/xray.zip" "${url}"; then
+    if [[ -n "${XRAY_VERSION:-}" ]]; then
+      echo "error: failed to download Xray version ${XRAY_VERSION}."
+      exit 1
+    fi
+    tag="$(curl -fsSL "https://api.github.com/repos/XTLS/Xray-core/releases/latest" \
+      | sed -n 's/.*\"tag_name\":\"\\([^\"]*\\)\".*/\\1/p' | head -n 1)"
+    if [[ -z "${tag}" ]]; then
+      echo "error: failed to determine latest Xray version."
+      exit 1
+    fi
+    url="https://github.com/XTLS/Xray-core/releases/download/${tag}/Xray-linux-${arch}.zip"
+    curl -fsSL -o "${tmp}/xray.zip" "${url}"
+  fi
   unzip -q "${tmp}/xray.zip" -d "${tmp}"
 
   mkdir -p "${XRAY_DIR}"
+  rm -f "${XRAY_BIN}"
   install -m 0755 "${tmp}/xray" "${XRAY_BIN}"
+  file_info="$(file -b "${XRAY_BIN}" || true)"
+  if ! echo "${file_info}" | grep -qi "ELF"; then
+    echo "error: downloaded xray binary is not ELF (linux)."
+    echo "error: file info: ${file_info}"
+    exit 1
+  fi
   if [[ -f "${tmp}/geoip.dat" ]]; then
     install -m 0644 "${tmp}/geoip.dat" "${XRAY_DIR}/geoip.dat"
   fi
@@ -184,6 +205,7 @@ EOF
 
 main() {
   require_root
+  require_linux
   detect_pkg_manager
   install_packages curl ca-certificates
 
