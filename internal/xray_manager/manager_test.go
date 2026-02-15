@@ -3,6 +3,7 @@ package xraymanager_test
 import (
 	"context"
 	xraymanager "gofronet-foundation/gofro-node/internal/xray_manager"
+
 	"testing"
 	"time"
 
@@ -10,13 +11,13 @@ import (
 )
 
 const (
-	config = "{\"log\": {\"logLevel\": \"debug\"}}"
-	path   = "../../xray/xray"
+	testconfig = "{\"log\": {\"logLevel\": \"debug\"}}"
+	path       = "../../xray/xray"
 )
 
 func TestManager(t *testing.T) {
 	t.Run("Running double xray", func(t *testing.T) {
-		manager := xraymanager.NewXrayManager(config, path)
+		manager := xraymanager.NewXrayManager(testconfig, path)
 
 		t.Log("Starting xray")
 		err := manager.Start()
@@ -38,7 +39,7 @@ func TestManager(t *testing.T) {
 	})
 
 	t.Run("Restart test", func(t *testing.T) {
-		manager := xraymanager.NewXrayManager(config, path)
+		manager := xraymanager.NewXrayManager(testconfig, path)
 
 		t.Log("Starting xray ")
 		err := manager.Start()
@@ -59,7 +60,7 @@ func TestManager(t *testing.T) {
 
 		newConfig := "{\"log\": {\"logLevel\": \"error\"}}"
 
-		manager := xraymanager.NewXrayManager(config, path)
+		manager := xraymanager.NewXrayManager(testconfig, path)
 
 		t.Log("Starting xray")
 		err := manager.Start()

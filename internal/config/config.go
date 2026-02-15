@@ -10,6 +10,7 @@ type Config struct {
 	NodeName       string `env:"NODE_NAME,required"`
 	XrayCorePath   string `env:"XRAY_CORE_PATH" envDefault:"xray/xray"`
 	IsDevMode      bool   `env:"DEV_MODE" envDefault:"false"`
+	XrayApiAddress string `env:"XRAY_API_ADDRESS" envDefault:"127.0.0.1:8080"`
 }
 
 func Load() (*Config, error) {

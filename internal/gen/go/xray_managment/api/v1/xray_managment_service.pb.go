@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: api/v1/api.proto
+// source: xray_managment/api/v1/xray_managment_service.proto
 
 package apiv1
 
@@ -29,7 +29,7 @@ type GetNodeInfoRequest struct {
 
 func (x *GetNodeInfoRequest) Reset() {
 	*x = GetNodeInfoRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[0]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -41,7 +41,7 @@ func (x *GetNodeInfoRequest) String() string {
 func (*GetNodeInfoRequest) ProtoMessage() {}
 
 func (x *GetNodeInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[0]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -54,7 +54,7 @@ func (x *GetNodeInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNodeInfoRequest.ProtoReflect.Descriptor instead.
 func (*GetNodeInfoRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{0}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{0}
 }
 
 type GetNodeInfoResponse struct {
@@ -67,7 +67,7 @@ type GetNodeInfoResponse struct {
 
 func (x *GetNodeInfoResponse) Reset() {
 	*x = GetNodeInfoResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[1]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -79,7 +79,7 @@ func (x *GetNodeInfoResponse) String() string {
 func (*GetNodeInfoResponse) ProtoMessage() {}
 
 func (x *GetNodeInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[1]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -92,7 +92,7 @@ func (x *GetNodeInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetNodeInfoResponse.ProtoReflect.Descriptor instead.
 func (*GetNodeInfoResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{1}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GetNodeInfoResponse) GetXrayRunning() bool {
@@ -118,7 +118,7 @@ type UpdateXrayConfigRequest struct {
 
 func (x *UpdateXrayConfigRequest) Reset() {
 	*x = UpdateXrayConfigRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[2]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -130,7 +130,7 @@ func (x *UpdateXrayConfigRequest) String() string {
 func (*UpdateXrayConfigRequest) ProtoMessage() {}
 
 func (x *UpdateXrayConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[2]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -143,7 +143,7 @@ func (x *UpdateXrayConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateXrayConfigRequest.ProtoReflect.Descriptor instead.
 func (*UpdateXrayConfigRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{2}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *UpdateXrayConfigRequest) GetNewConfig() string {
@@ -161,7 +161,7 @@ type UpdateXrayConfigResponse struct {
 
 func (x *UpdateXrayConfigResponse) Reset() {
 	*x = UpdateXrayConfigResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[3]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -173,7 +173,7 @@ func (x *UpdateXrayConfigResponse) String() string {
 func (*UpdateXrayConfigResponse) ProtoMessage() {}
 
 func (x *UpdateXrayConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[3]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -186,7 +186,7 @@ func (x *UpdateXrayConfigResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateXrayConfigResponse.ProtoReflect.Descriptor instead.
 func (*UpdateXrayConfigResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{3}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{3}
 }
 
 type GetCurrentConfigRequest struct {
@@ -197,7 +197,7 @@ type GetCurrentConfigRequest struct {
 
 func (x *GetCurrentConfigRequest) Reset() {
 	*x = GetCurrentConfigRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[4]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -209,7 +209,7 @@ func (x *GetCurrentConfigRequest) String() string {
 func (*GetCurrentConfigRequest) ProtoMessage() {}
 
 func (x *GetCurrentConfigRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[4]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -222,7 +222,7 @@ func (x *GetCurrentConfigRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentConfigRequest.ProtoReflect.Descriptor instead.
 func (*GetCurrentConfigRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{4}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{4}
 }
 
 type GetCurrentConfigResponse struct {
@@ -234,7 +234,7 @@ type GetCurrentConfigResponse struct {
 
 func (x *GetCurrentConfigResponse) Reset() {
 	*x = GetCurrentConfigResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[5]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -246,7 +246,7 @@ func (x *GetCurrentConfigResponse) String() string {
 func (*GetCurrentConfigResponse) ProtoMessage() {}
 
 func (x *GetCurrentConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[5]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -259,7 +259,7 @@ func (x *GetCurrentConfigResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCurrentConfigResponse.ProtoReflect.Descriptor instead.
 func (*GetCurrentConfigResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{5}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetCurrentConfigResponse) GetCurrentConfig() string {
@@ -277,7 +277,7 @@ type StartXrayRequest struct {
 
 func (x *StartXrayRequest) Reset() {
 	*x = StartXrayRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[6]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -289,7 +289,7 @@ func (x *StartXrayRequest) String() string {
 func (*StartXrayRequest) ProtoMessage() {}
 
 func (x *StartXrayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[6]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -302,7 +302,7 @@ func (x *StartXrayRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartXrayRequest.ProtoReflect.Descriptor instead.
 func (*StartXrayRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{6}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{6}
 }
 
 type StartXrayResponse struct {
@@ -313,7 +313,7 @@ type StartXrayResponse struct {
 
 func (x *StartXrayResponse) Reset() {
 	*x = StartXrayResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[7]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -325,7 +325,7 @@ func (x *StartXrayResponse) String() string {
 func (*StartXrayResponse) ProtoMessage() {}
 
 func (x *StartXrayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[7]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -338,7 +338,7 @@ func (x *StartXrayResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StartXrayResponse.ProtoReflect.Descriptor instead.
 func (*StartXrayResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{7}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{7}
 }
 
 type StopXrayRequest struct {
@@ -349,7 +349,7 @@ type StopXrayRequest struct {
 
 func (x *StopXrayRequest) Reset() {
 	*x = StopXrayRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[8]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -361,7 +361,7 @@ func (x *StopXrayRequest) String() string {
 func (*StopXrayRequest) ProtoMessage() {}
 
 func (x *StopXrayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[8]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -374,7 +374,7 @@ func (x *StopXrayRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopXrayRequest.ProtoReflect.Descriptor instead.
 func (*StopXrayRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{8}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{8}
 }
 
 type StopXrayResponse struct {
@@ -385,7 +385,7 @@ type StopXrayResponse struct {
 
 func (x *StopXrayResponse) Reset() {
 	*x = StopXrayResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[9]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -397,7 +397,7 @@ func (x *StopXrayResponse) String() string {
 func (*StopXrayResponse) ProtoMessage() {}
 
 func (x *StopXrayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[9]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -410,7 +410,7 @@ func (x *StopXrayResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use StopXrayResponse.ProtoReflect.Descriptor instead.
 func (*StopXrayResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{9}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{9}
 }
 
 type RestartXrayRequest struct {
@@ -421,7 +421,7 @@ type RestartXrayRequest struct {
 
 func (x *RestartXrayRequest) Reset() {
 	*x = RestartXrayRequest{}
-	mi := &file_api_v1_api_proto_msgTypes[10]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -433,7 +433,7 @@ func (x *RestartXrayRequest) String() string {
 func (*RestartXrayRequest) ProtoMessage() {}
 
 func (x *RestartXrayRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[10]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -446,7 +446,7 @@ func (x *RestartXrayRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestartXrayRequest.ProtoReflect.Descriptor instead.
 func (*RestartXrayRequest) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{10}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{10}
 }
 
 type RestartXrayResponse struct {
@@ -457,7 +457,7 @@ type RestartXrayResponse struct {
 
 func (x *RestartXrayResponse) Reset() {
 	*x = RestartXrayResponse{}
-	mi := &file_api_v1_api_proto_msgTypes[11]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -469,7 +469,7 @@ func (x *RestartXrayResponse) String() string {
 func (*RestartXrayResponse) ProtoMessage() {}
 
 func (x *RestartXrayResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_api_v1_api_proto_msgTypes[11]
+	mi := &file_xray_managment_api_v1_xray_managment_service_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -482,14 +482,14 @@ func (x *RestartXrayResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RestartXrayResponse.ProtoReflect.Descriptor instead.
 func (*RestartXrayResponse) Descriptor() ([]byte, []int) {
-	return file_api_v1_api_proto_rawDescGZIP(), []int{11}
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP(), []int{11}
 }
 
-var File_api_v1_api_proto protoreflect.FileDescriptor
+var File_xray_managment_api_v1_xray_managment_service_proto protoreflect.FileDescriptor
 
-const file_api_v1_api_proto_rawDesc = "" +
+const file_xray_managment_api_v1_xray_managment_service_proto_rawDesc = "" +
 	"\n" +
-	"\x10api/v1/api.proto\x12\x06api.v1\"\x14\n" +
+	"2xray_managment/api/v1/xray_managment_service.proto\x12\x15xray_managment.api.v1\"\x14\n" +
 	"\x12GetNodeInfoRequest\"U\n" +
 	"\x13GetNodeInfoResponse\x12!\n" +
 	"\fxray_running\x18\x01 \x01(\bR\vxrayRunning\x12\x1b\n" +
@@ -506,57 +506,56 @@ const file_api_v1_api_proto_rawDesc = "" +
 	"\x0fStopXrayRequest\"\x12\n" +
 	"\x10StopXrayResponse\"\x14\n" +
 	"\x12RestartXrayRequest\"\x15\n" +
-	"\x13RestartXrayResponse2\xcc\x03\n" +
-	"\vXrayService\x12@\n" +
-	"\tStartXray\x12\x18.api.v1.StartXrayRequest\x1a\x19.api.v1.StartXrayResponse\x12U\n" +
-	"\x10UpdateXrayConfig\x12\x1f.api.v1.UpdateXrayConfigRequest\x1a .api.v1.UpdateXrayConfigResponse\x12F\n" +
-	"\vRestartXray\x12\x1a.api.v1.RestartXrayRequest\x1a\x1b.api.v1.RestartXrayResponse\x12=\n" +
-	"\bStopXray\x12\x17.api.v1.StopXrayRequest\x1a\x18.api.v1.StopXrayResponse\x12F\n" +
-	"\vGetNodeInfo\x12\x1a.api.v1.GetNodeInfoRequest\x1a\x1b.api.v1.GetNodeInfoResponse\x12U\n" +
-	"\x10GetCurrentConfig\x12\x1f.api.v1.GetCurrentConfigRequest\x1a .api.v1.GetCurrentConfigResponseB\x8c\x01\n" +
-	"\n" +
-	"com.api.v1B\bApiProtoP\x01Z;gofronet-foundation/gofro-node/internal/gen/go/api/v1;apiv1\xa2\x02\x03AXX\xaa\x02\x06Api.V1\xca\x02\x06Api\\V1\xe2\x02\x12Api\\V1\\GPBMetadata\xea\x02\aApi::V1b\x06proto3"
+	"\x13RestartXrayResponse2\x89\x05\n" +
+	"\x14XrayManagmentService\x12^\n" +
+	"\tStartXray\x12'.xray_managment.api.v1.StartXrayRequest\x1a(.xray_managment.api.v1.StartXrayResponse\x12s\n" +
+	"\x10UpdateXrayConfig\x12..xray_managment.api.v1.UpdateXrayConfigRequest\x1a/.xray_managment.api.v1.UpdateXrayConfigResponse\x12d\n" +
+	"\vRestartXray\x12).xray_managment.api.v1.RestartXrayRequest\x1a*.xray_managment.api.v1.RestartXrayResponse\x12[\n" +
+	"\bStopXray\x12&.xray_managment.api.v1.StopXrayRequest\x1a'.xray_managment.api.v1.StopXrayResponse\x12d\n" +
+	"\vGetNodeInfo\x12).xray_managment.api.v1.GetNodeInfoRequest\x1a*.xray_managment.api.v1.GetNodeInfoResponse\x12s\n" +
+	"\x10GetCurrentConfig\x12..xray_managment.api.v1.GetCurrentConfigRequest\x1a/.xray_managment.api.v1.GetCurrentConfigResponseB\xf4\x01\n" +
+	"\x19com.xray_managment.api.v1B\x19XrayManagmentServiceProtoP\x01ZJgofronet-foundation/gofro-node/internal/gen/go/xray_managment/api/v1;apiv1\xa2\x02\x03XAX\xaa\x02\x14XrayManagment.Api.V1\xca\x02\x14XrayManagment\\Api\\V1\xe2\x02 XrayManagment\\Api\\V1\\GPBMetadata\xea\x02\x16XrayManagment::Api::V1b\x06proto3"
 
 var (
-	file_api_v1_api_proto_rawDescOnce sync.Once
-	file_api_v1_api_proto_rawDescData []byte
+	file_xray_managment_api_v1_xray_managment_service_proto_rawDescOnce sync.Once
+	file_xray_managment_api_v1_xray_managment_service_proto_rawDescData []byte
 )
 
-func file_api_v1_api_proto_rawDescGZIP() []byte {
-	file_api_v1_api_proto_rawDescOnce.Do(func() {
-		file_api_v1_api_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_api_v1_api_proto_rawDesc), len(file_api_v1_api_proto_rawDesc)))
+func file_xray_managment_api_v1_xray_managment_service_proto_rawDescGZIP() []byte {
+	file_xray_managment_api_v1_xray_managment_service_proto_rawDescOnce.Do(func() {
+		file_xray_managment_api_v1_xray_managment_service_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_xray_managment_api_v1_xray_managment_service_proto_rawDesc), len(file_xray_managment_api_v1_xray_managment_service_proto_rawDesc)))
 	})
-	return file_api_v1_api_proto_rawDescData
+	return file_xray_managment_api_v1_xray_managment_service_proto_rawDescData
 }
 
-var file_api_v1_api_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
-var file_api_v1_api_proto_goTypes = []any{
-	(*GetNodeInfoRequest)(nil),       // 0: api.v1.GetNodeInfoRequest
-	(*GetNodeInfoResponse)(nil),      // 1: api.v1.GetNodeInfoResponse
-	(*UpdateXrayConfigRequest)(nil),  // 2: api.v1.UpdateXrayConfigRequest
-	(*UpdateXrayConfigResponse)(nil), // 3: api.v1.UpdateXrayConfigResponse
-	(*GetCurrentConfigRequest)(nil),  // 4: api.v1.GetCurrentConfigRequest
-	(*GetCurrentConfigResponse)(nil), // 5: api.v1.GetCurrentConfigResponse
-	(*StartXrayRequest)(nil),         // 6: api.v1.StartXrayRequest
-	(*StartXrayResponse)(nil),        // 7: api.v1.StartXrayResponse
-	(*StopXrayRequest)(nil),          // 8: api.v1.StopXrayRequest
-	(*StopXrayResponse)(nil),         // 9: api.v1.StopXrayResponse
-	(*RestartXrayRequest)(nil),       // 10: api.v1.RestartXrayRequest
-	(*RestartXrayResponse)(nil),      // 11: api.v1.RestartXrayResponse
+var file_xray_managment_api_v1_xray_managment_service_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_xray_managment_api_v1_xray_managment_service_proto_goTypes = []any{
+	(*GetNodeInfoRequest)(nil),       // 0: xray_managment.api.v1.GetNodeInfoRequest
+	(*GetNodeInfoResponse)(nil),      // 1: xray_managment.api.v1.GetNodeInfoResponse
+	(*UpdateXrayConfigRequest)(nil),  // 2: xray_managment.api.v1.UpdateXrayConfigRequest
+	(*UpdateXrayConfigResponse)(nil), // 3: xray_managment.api.v1.UpdateXrayConfigResponse
+	(*GetCurrentConfigRequest)(nil),  // 4: xray_managment.api.v1.GetCurrentConfigRequest
+	(*GetCurrentConfigResponse)(nil), // 5: xray_managment.api.v1.GetCurrentConfigResponse
+	(*StartXrayRequest)(nil),         // 6: xray_managment.api.v1.StartXrayRequest
+	(*StartXrayResponse)(nil),        // 7: xray_managment.api.v1.StartXrayResponse
+	(*StopXrayRequest)(nil),          // 8: xray_managment.api.v1.StopXrayRequest
+	(*StopXrayResponse)(nil),         // 9: xray_managment.api.v1.StopXrayResponse
+	(*RestartXrayRequest)(nil),       // 10: xray_managment.api.v1.RestartXrayRequest
+	(*RestartXrayResponse)(nil),      // 11: xray_managment.api.v1.RestartXrayResponse
 }
-var file_api_v1_api_proto_depIdxs = []int32{
-	6,  // 0: api.v1.XrayService.StartXray:input_type -> api.v1.StartXrayRequest
-	2,  // 1: api.v1.XrayService.UpdateXrayConfig:input_type -> api.v1.UpdateXrayConfigRequest
-	10, // 2: api.v1.XrayService.RestartXray:input_type -> api.v1.RestartXrayRequest
-	8,  // 3: api.v1.XrayService.StopXray:input_type -> api.v1.StopXrayRequest
-	0,  // 4: api.v1.XrayService.GetNodeInfo:input_type -> api.v1.GetNodeInfoRequest
-	4,  // 5: api.v1.XrayService.GetCurrentConfig:input_type -> api.v1.GetCurrentConfigRequest
-	7,  // 6: api.v1.XrayService.StartXray:output_type -> api.v1.StartXrayResponse
-	3,  // 7: api.v1.XrayService.UpdateXrayConfig:output_type -> api.v1.UpdateXrayConfigResponse
-	11, // 8: api.v1.XrayService.RestartXray:output_type -> api.v1.RestartXrayResponse
-	9,  // 9: api.v1.XrayService.StopXray:output_type -> api.v1.StopXrayResponse
-	1,  // 10: api.v1.XrayService.GetNodeInfo:output_type -> api.v1.GetNodeInfoResponse
-	5,  // 11: api.v1.XrayService.GetCurrentConfig:output_type -> api.v1.GetCurrentConfigResponse
+var file_xray_managment_api_v1_xray_managment_service_proto_depIdxs = []int32{
+	6,  // 0: xray_managment.api.v1.XrayManagmentService.StartXray:input_type -> xray_managment.api.v1.StartXrayRequest
+	2,  // 1: xray_managment.api.v1.XrayManagmentService.UpdateXrayConfig:input_type -> xray_managment.api.v1.UpdateXrayConfigRequest
+	10, // 2: xray_managment.api.v1.XrayManagmentService.RestartXray:input_type -> xray_managment.api.v1.RestartXrayRequest
+	8,  // 3: xray_managment.api.v1.XrayManagmentService.StopXray:input_type -> xray_managment.api.v1.StopXrayRequest
+	0,  // 4: xray_managment.api.v1.XrayManagmentService.GetNodeInfo:input_type -> xray_managment.api.v1.GetNodeInfoRequest
+	4,  // 5: xray_managment.api.v1.XrayManagmentService.GetCurrentConfig:input_type -> xray_managment.api.v1.GetCurrentConfigRequest
+	7,  // 6: xray_managment.api.v1.XrayManagmentService.StartXray:output_type -> xray_managment.api.v1.StartXrayResponse
+	3,  // 7: xray_managment.api.v1.XrayManagmentService.UpdateXrayConfig:output_type -> xray_managment.api.v1.UpdateXrayConfigResponse
+	11, // 8: xray_managment.api.v1.XrayManagmentService.RestartXray:output_type -> xray_managment.api.v1.RestartXrayResponse
+	9,  // 9: xray_managment.api.v1.XrayManagmentService.StopXray:output_type -> xray_managment.api.v1.StopXrayResponse
+	1,  // 10: xray_managment.api.v1.XrayManagmentService.GetNodeInfo:output_type -> xray_managment.api.v1.GetNodeInfoResponse
+	5,  // 11: xray_managment.api.v1.XrayManagmentService.GetCurrentConfig:output_type -> xray_managment.api.v1.GetCurrentConfigResponse
 	6,  // [6:12] is the sub-list for method output_type
 	0,  // [0:6] is the sub-list for method input_type
 	0,  // [0:0] is the sub-list for extension type_name
@@ -564,26 +563,26 @@ var file_api_v1_api_proto_depIdxs = []int32{
 	0,  // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_api_v1_api_proto_init() }
-func file_api_v1_api_proto_init() {
-	if File_api_v1_api_proto != nil {
+func init() { file_xray_managment_api_v1_xray_managment_service_proto_init() }
+func file_xray_managment_api_v1_xray_managment_service_proto_init() {
+	if File_xray_managment_api_v1_xray_managment_service_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_api_v1_api_proto_rawDesc), len(file_api_v1_api_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_xray_managment_api_v1_xray_managment_service_proto_rawDesc), len(file_xray_managment_api_v1_xray_managment_service_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_api_v1_api_proto_goTypes,
-		DependencyIndexes: file_api_v1_api_proto_depIdxs,
-		MessageInfos:      file_api_v1_api_proto_msgTypes,
+		GoTypes:           file_xray_managment_api_v1_xray_managment_service_proto_goTypes,
+		DependencyIndexes: file_xray_managment_api_v1_xray_managment_service_proto_depIdxs,
+		MessageInfos:      file_xray_managment_api_v1_xray_managment_service_proto_msgTypes,
 	}.Build()
-	File_api_v1_api_proto = out.File
-	file_api_v1_api_proto_goTypes = nil
-	file_api_v1_api_proto_depIdxs = nil
+	File_xray_managment_api_v1_xray_managment_service_proto = out.File
+	file_xray_managment_api_v1_xray_managment_service_proto_goTypes = nil
+	file_xray_managment_api_v1_xray_managment_service_proto_depIdxs = nil
 }

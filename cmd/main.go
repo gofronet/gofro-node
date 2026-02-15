@@ -3,9 +3,8 @@ package main
 import (
 	"context"
 	"gofronet-foundation/gofro-node/internal/config"
-	"gofronet-foundation/gofro-node/internal/delivery"
-	"gofronet-foundation/gofro-node/internal/delivery/interceptors"
-	apiv1 "gofronet-foundation/gofro-node/internal/gen/api/v1"
+	xraymanagmentapiv1 "gofronet-foundation/gofro-node/internal/gen/go/xray_managment/api/v1"
+	grpcinterceptors "gofronet-foundation/gofro-node/internal/grpc_interceptors"
 	xraymanager "gofronet-foundation/gofro-node/internal/xray_manager"
 	"log"
 	"net"
@@ -34,10 +33,15 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	handler := delivery.NewXrayManagmentService(cfg, manager)
+	// xrayConn, err := xrayconn.NewXrayConn(cfg.XrayApiAddress)
+	// if err != nil {
+	// 	log.Fatalln(err)
+	// }
 
-	grpcServer := grpc.NewServer(grpc.UnaryInterceptor(interceptors.UnaryLogging()))
-	apiv1.RegisterXrayServiceServer(grpcServer, handler)
+	xrayManagmentGrpcService := xraymanager.NewXrayManagmentService(cfg, manager)
+
+	grpcServer := grpc.NewServer(grpc.UnaryInterceptor(grpcinterceptors.UnaryLogging()))
+	xraymanagmentapiv1.RegisterXrayManagmentServiceServer(grpcServer, xrayManagmentGrpcService)
 
 	if cfg.IsDevMode {
 		log.Println("dev mode enabled, reflection registered")
