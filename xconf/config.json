@@ -26,60 +26,6 @@
         "network": "tcp",
         "security": "none"
       }
-    },
-    {
-      "listen": "0.0.0.0",
-      "port": 8443,
-      "protocol": "vless",
-      "tag": "reality-tcp",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls", "quic", "fakedns"],
-        "metadataOnly": false,
-        "routeOnly": false
-      },
-      "settings": {
-        "flow": "xtls-rprx-vision",
-        "clients": [
-          {
-            "id": "5783a3e7-e373-51cd-8642-c83782b807c5",
-            "level": 0,
-            "email": "beta-config",
-            "flow": "xtls-rprx-vision"
-          }
-        ],
-        "decryption": "none",
-        "fallbacks": [
-          {
-            "dest": 80
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "raw",
-        "security": "reality",
-        "realitySettings": {
-          "show": false,
-          "target": "api-maps.yandex.ru:443",
-          "xver": 0,
-          "serverNames": ["api-maps.yandex.ru"],
-          "privateKey": "QKaHAY6p4Nb_553-b1HZSyKgWQZwYU5iMft87_tb5nM",
-          "minClientVer": "",
-          "maxClientVer": "",
-          "maxTimeDiff": 0,
-          "shortIds": ["6ba3", "f91c", "0a7e9d", "deadbeef"],
-          "limitFallbackUpload": {
-            "afterBytes": 0,
-            "bytesPerSec": 0,
-            "burstBytesPerSec": 0
-          },
-          "limitFallbackDownload": {
-            "afterBytes": 0,
-            "bytesPerSec": 0,
-            "burstBytesPerSec": 0
-          }
-        }
-      }
     }
   ],
   "outbounds": [
