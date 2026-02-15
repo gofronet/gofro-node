@@ -7,7 +7,7 @@ managed:
       value: gofronet-foundation/gofro-node/internal/gen/go
 
 inputs:
-  - git_repo: ssh://git@gitlab.com/gofronet/specs/node-proto.git
+  - git_repo: ssh://git@github.com/gofroshka/gofro-node-proto.git
     branch: main
 
 plugins:
