@@ -1,4 +1,4 @@
-module gofronet-foundation/gofro-node
+module github.com/gofronet/gofro-node
 
 go 1.26
 

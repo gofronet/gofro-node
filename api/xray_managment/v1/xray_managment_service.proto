@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package api.xray_managment.v1;
 
-option go_package = "gofronet-foundation/gofro-node/gen/go/api/xray_managment/v1;xraymanagmentv1";
+option go_package = "github.com/gofronet/gofro-node/gen/go/api/xray_managment/v1;xraymanagmentv1";
 
 service XrayManagmentService {
   rpc StartXray(StartXrayRequest) returns (StartXrayResponse);

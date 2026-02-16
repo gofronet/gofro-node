@@ -2,15 +2,16 @@ package main
 
 import (
 	"context"
-	xraymanagmentv1 "gofronet-foundation/gofro-node/gen/go/api/xray_managment/v1"
-	"gofronet-foundation/gofro-node/internal/config"
-	grpcinterceptors "gofronet-foundation/gofro-node/internal/grpc_interceptors"
-	xraymanager "gofronet-foundation/gofro-node/internal/xray_manager"
 	"log"
 	"net"
 	"os"
 	"os/signal"
 	"syscall"
+
+	xraymanagmentv1 "github.com/gofronet/gofro-node/gen/go/api/xray_managment/v1"
+	"github.com/gofronet/gofro-node/internal/config"
+	grpcinterceptors "github.com/gofronet/gofro-node/internal/grpc_interceptors"
+	xraymanager "github.com/gofronet/gofro-node/internal/xray_manager"
 
 	"golang.org/x/sync/errgroup"
 	"google.golang.org/grpc"

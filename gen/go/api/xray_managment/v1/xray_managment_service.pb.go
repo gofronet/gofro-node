@@ -7,11 +7,12 @@
 package xraymanagmentv1
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -513,7 +514,7 @@ const file_api_xray_managment_v1_xray_managment_service_proto_rawDesc = "" +
 	"\vRestartXray\x12).api.xray_managment.v1.RestartXrayRequest\x1a*.api.xray_managment.v1.RestartXrayResponse\x12[\n" +
 	"\bStopXray\x12&.api.xray_managment.v1.StopXrayRequest\x1a'.api.xray_managment.v1.StopXrayResponse\x12d\n" +
 	"\vGetNodeInfo\x12).api.xray_managment.v1.GetNodeInfoRequest\x1a*.api.xray_managment.v1.GetNodeInfoResponse\x12s\n" +
-	"\x10GetCurrentConfig\x12..api.xray_managment.v1.GetCurrentConfigRequest\x1a/.api.xray_managment.v1.GetCurrentConfigResponseBMZKgofronet-foundation/gofro-node/gen/go/api/xray_managment/v1;xraymanagmentv1b\x06proto3"
+	"\x10GetCurrentConfig\x12..api.xray_managment.v1.GetCurrentConfigRequest\x1a/.api.xray_managment.v1.GetCurrentConfigResponseBMZKgithub.com/gofronet/gofro-node/gen/go/api/xray_managment/v1;xraymanagmentv1b\x06proto3"
 
 var (
 	file_api_xray_managment_v1_xray_managment_service_proto_rawDescOnce sync.Once

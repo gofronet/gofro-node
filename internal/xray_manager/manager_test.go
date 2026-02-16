@@ -2,7 +2,8 @@ package xraymanager_test
 
 import (
 	"context"
-	xraymanager "gofronet-foundation/gofro-node/internal/xray_manager"
+
+	xraymanager "github.com/gofronet/gofro-node/internal/xray_manager"
 
 	"testing"
 	"time"

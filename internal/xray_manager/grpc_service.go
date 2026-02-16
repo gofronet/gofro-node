@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	xraymanagmentv1 "gofronet-foundation/gofro-node/gen/go/api/xray_managment/v1"
-	"gofronet-foundation/gofro-node/internal/config"
+	xraymanagmentv1 "github.com/gofronet/gofro-node/gen/go/api/xray_managment/v1"
+	"github.com/gofronet/gofro-node/internal/config"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
