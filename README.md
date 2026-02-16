@@ -1,21 +1,29 @@
+
 # gofro-node
 
-Data-plane нода для open-source панели управления Xray. Управляет локальным процессом Xray Core, принимает команды по gRPC и синхронизирует конфигурацию.
+`gofro-node` — data-plane агент платформы Gofro. Работает на сервере ноды, управляет локальным Xray Core и исполняет команды от `gofro-control`.
 
-```
-Control Plane ── gRPC ──> gofro-node (data-plane) ──> Xray Core
-         панели/ноды             управление ядром       проксирование трафика
-```
+## Роль в системе
 
-## Возможности (MVP)
+- исполняющий слой для control-plane;
+- управление процессом Xray на локальной машине;
+- хранение и применение конфигурации Xray.
 
-- запуск Xray Core при старте сервиса и управление жизненным циклом (start/stop/restart)
-- прием конфигурации Xray по gRPC и запись в файл
-- выдача текущей конфигурации и статуса ноды
-- логирование gRPC запросов
-- dev-режим с gRPC reflection
+## Взаимодействие с другими сервисами
 
-## Быстрый старт (локально)
+- принимает gRPC-команды от `gofro-control`;
+- не предоставляет публичный HTTP API для панели;
+- напрямую взаимодействует с локальным бинарником Xray.
+
+## Функциональность (MVP)
+
+- gRPC сервер (по умолчанию `:50051`);
+- команды `start/stop/restart` для Xray;
+- обновление и чтение текущего конфига;
+- выдача статуса ноды;
+- gRPC reflection в `DEV_MODE=true`.
+
+## Быстрый запуск
 
 ```bash
 export NODE_NAME="node-ru-1"
@@ -26,59 +34,58 @@ export DEV_MODE="false"
 go run ./cmd
 ```
 
-gRPC слушает `:50051`.
-
 ## Установка на сервер (Linux + systemd)
-
-Скрипт собирает бинарник, скачивает Xray и поднимает systemd-сервис.
 
 ```bash
 sudo ./install.sh
 ```
 
-Полезные переменные для `install.sh`:
+Переменные `install.sh`:
 
-- `APP_NAME` (по умолчанию `gofro-node`)
-- `APP_USER` (по умолчанию `root`)
-- `SERVICE_NAME` (по умолчанию `gofro-node`)
-- `ENV_FILE` (по умолчанию `<repo>/.env`)
-- `BIN_DIR` (по умолчанию `<repo>/bin`)
-- `XRAY_DIR` (по умолчанию `<repo>/xray`)
-- `XRAY_VERSION` (если нужен конкретный релиз Xray)
+- `APP_NAME` (`gofro-node`)
+- `APP_USER` (`root`)
+- `SERVICE_NAME` (`gofro-node`)
+- `ENV_FILE` (`<repo>/.env`)
+- `BIN_DIR` (`<repo>/bin`)
+- `XRAY_DIR` (`<repo>/xray`)
+- `XRAY_VERSION` (опционально, конкретный релиз)
 
 ## Конфигурация окружения
 
-- `NODE_NAME` (обязательный) — имя ноды в control plane
-- `XRAY_DEFAULT_CONFIG` (по умолчанию `xconf/config.json`) — путь к базовому конфигу Xray
-- `XRAY_CORE_PATH` (по умолчанию `xray/xray`) — путь к бинарнику Xray
-- `DEV_MODE` (по умолчанию `false`) — включает gRPC reflection
-- `XRAY_API_ADDRESS` (по умолчанию `127.0.0.1:8080`) — зарезервировано, сейчас не используется
+- `NODE_NAME` (обязательная)
+- `XRAY_DEFAULT_CONFIG` (по умолчанию `xconf/config.json`)
+- `XRAY_CORE_PATH` (по умолчанию `xray/xray`)
+- `DEV_MODE` (по умолчанию `false`)
+- `XRAY_API_ADDRESS` (зарезервировано, сейчас не используется)
 
 ## gRPC API (v1)
 
-- `StartXray` — запуск Xray Core
-- `StopXray` — остановка Xray Core
-- `RestartXray` — перезапуск Xray Core
-- `UpdateXrayConfig` — записывает новый конфиг в файл и обновляет его в менеджере (без рестарта)
-- `GetNodeInfo` — статус Xray и имя ноды
-- `GetCurrentConfig` — текущий конфиг в памяти
+- `StartXray`
+- `StopXray`
+- `RestartXray`
+- `UpdateXrayConfig`
+- `GetNodeInfo`
+- `GetCurrentConfig`
 
-## Структура проекта
+## Интеграция с gofro-control
 
-- `cmd/` — точка входа gRPC-сервера
-- `internal/config/` — загрузка env и работа с конфигом Xray
-- `internal/grpc_interceptors/` — gRPC interceptors
-- `internal/xray_manager/` — управление процессом Xray и gRPC сервис
-- `internal/xray_conn/` — gRPC клиент для Xray API (заготовка)
-- `internal/gen/` — сгенерированные protobuf-структуры
-- `xconf/` — базовый конфиг Xray
-- `xray/` — бинарник Xray и базы geoip/geosite
+1. Поднимите `gofro-node` и откройте gRPC порт.
+2. В `gofro-control` выполните `POST /v1/nodes/` с адресом ноды.
+3. Все дальнейшие операции выполняйте через control-plane.
 
+## Структура
 
-## Roadmap
+- `cmd/` — запуск gRPC сервера
+- `internal/config/` — env и работа с конфигом
+- `internal/grpc_interceptors/` — interceptors
+- `internal/xray_manager/` — менеджер Xray и gRPC сервис
+- `internal/xray_conn/` — заготовка клиента к Xray API
+- `internal/gen/` — protobuf-артефакты
+- `xconf/` — дефолтный конфиг Xray
+- `xray/` — бинарник Xray и базы geo
 
-- регистрация ноды и аутентификация запросов control plane
-- health/metrics endpoint (Prometheus)
-- валидация и диффы конфигов перед применением
-- удаленное обновление Xray Core и баз geoip/geosite
-- безопасное хранение и ротация ключей
+## Ограничения
+
+- нет встроенной регистрации ноды и доверенной identity-модели;
+- нет метрик/health endpoint по умолчанию;
+- нет безопасного канала по умолчанию между компонентами.

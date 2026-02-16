@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package api.xray_managment.v1;
+
+option go_package = "gofronet-foundation/gofro-node/gen/go/api/xray_managment/v1;xraymanagmentv1";
+
+service XrayManagmentService {
+  rpc StartXray(StartXrayRequest) returns (StartXrayResponse);
+  rpc UpdateXrayConfig(UpdateXrayConfigRequest) returns (UpdateXrayConfigResponse);
+  rpc RestartXray(RestartXrayRequest) returns (RestartXrayResponse);
+  rpc StopXray(StopXrayRequest) returns (StopXrayResponse);
+
+  rpc GetNodeInfo(GetNodeInfoRequest) returns (GetNodeInfoResponse);
+  rpc GetCurrentConfig(GetCurrentConfigRequest) returns (GetCurrentConfigResponse);
+}
+
+message GetNodeInfoRequest {}
+message GetNodeInfoResponse {
+  bool xray_running = 1;
+  string node_name = 2;
+}
+
+message UpdateXrayConfigRequest {
+  string new_config = 1;
+}
+message UpdateXrayConfigResponse {}
+
+message GetCurrentConfigRequest {}
+message GetCurrentConfigResponse {
+  string current_config = 1;
+}
+
+message StartXrayRequest {}
+message StartXrayResponse {}
+
+message StopXrayRequest {}
+message StopXrayResponse {}
+
+message RestartXrayRequest {}
+message RestartXrayResponse {}

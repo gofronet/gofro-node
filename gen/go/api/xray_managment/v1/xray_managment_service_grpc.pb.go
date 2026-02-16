@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.6.1
 // - protoc             (unknown)
-// source: xray_managment/api/v1/xray_managment_service.proto
+// source: api/xray_managment/v1/xray_managment_service.proto
 
-package apiv1
+package xraymanagmentv1
 
 import (
 	context "context"
@@ -19,12 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	XrayManagmentService_StartXray_FullMethodName        = "/xray_managment.api.v1.XrayManagmentService/StartXray"
-	XrayManagmentService_UpdateXrayConfig_FullMethodName = "/xray_managment.api.v1.XrayManagmentService/UpdateXrayConfig"
-	XrayManagmentService_RestartXray_FullMethodName      = "/xray_managment.api.v1.XrayManagmentService/RestartXray"
-	XrayManagmentService_StopXray_FullMethodName         = "/xray_managment.api.v1.XrayManagmentService/StopXray"
-	XrayManagmentService_GetNodeInfo_FullMethodName      = "/xray_managment.api.v1.XrayManagmentService/GetNodeInfo"
-	XrayManagmentService_GetCurrentConfig_FullMethodName = "/xray_managment.api.v1.XrayManagmentService/GetCurrentConfig"
+	XrayManagmentService_StartXray_FullMethodName        = "/api.xray_managment.v1.XrayManagmentService/StartXray"
+	XrayManagmentService_UpdateXrayConfig_FullMethodName = "/api.xray_managment.v1.XrayManagmentService/UpdateXrayConfig"
+	XrayManagmentService_RestartXray_FullMethodName      = "/api.xray_managment.v1.XrayManagmentService/RestartXray"
+	XrayManagmentService_StopXray_FullMethodName         = "/api.xray_managment.v1.XrayManagmentService/StopXray"
+	XrayManagmentService_GetNodeInfo_FullMethodName      = "/api.xray_managment.v1.XrayManagmentService/GetNodeInfo"
+	XrayManagmentService_GetCurrentConfig_FullMethodName = "/api.xray_managment.v1.XrayManagmentService/GetCurrentConfig"
 )
 
 // XrayManagmentServiceClient is the client API for XrayManagmentService service.
@@ -278,7 +278,7 @@ func _XrayManagmentService_GetCurrentConfig_Handler(srv interface{}, ctx context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var XrayManagmentService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "xray_managment.api.v1.XrayManagmentService",
+	ServiceName: "api.xray_managment.v1.XrayManagmentService",
 	HandlerType: (*XrayManagmentServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -307,5 +307,5 @@ var XrayManagmentService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "xray_managment/api/v1/xray_managment_service.proto",
+	Metadata: "api/xray_managment/v1/xray_managment_service.proto",
 }

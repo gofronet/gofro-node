@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
+	xraymanagmentv1 "gofronet-foundation/gofro-node/gen/go/api/xray_managment/v1"
 	"gofronet-foundation/gofro-node/internal/config"
-	xraymanagmentapiv1 "gofronet-foundation/gofro-node/internal/gen/go/xray_managment/api/v1"
 	grpcinterceptors "gofronet-foundation/gofro-node/internal/grpc_interceptors"
 	xraymanager "gofronet-foundation/gofro-node/internal/xray_manager"
 	"log"
@@ -41,7 +41,7 @@ func main() {
 	xrayManagmentGrpcService := xraymanager.NewXrayManagmentService(cfg, manager)
 
 	grpcServer := grpc.NewServer(grpc.UnaryInterceptor(grpcinterceptors.UnaryLogging()))
-	xraymanagmentapiv1.RegisterXrayManagmentServiceServer(grpcServer, xrayManagmentGrpcService)
+	xraymanagmentv1.RegisterXrayManagmentServiceServer(grpcServer, xrayManagmentGrpcService)
 
 	if cfg.IsDevMode {
 		log.Println("dev mode enabled, reflection registered")
